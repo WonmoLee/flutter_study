@@ -22,19 +22,38 @@ class StudyApp extends StatelessWidget {
             title: Text("Flutter"),
             leading: Icon(Icons.menu),
           ),
-          body: Text("안녕하세요"),
-          floatingActionButton: FloatingActionButton(
-            child: Text("+"),
-            onPressed: () {
-              print("클릭됌");
-            },
+          body: Column( // 부모의 제약조건에 자식이 따라간다.
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded( // 남은 공간 확장
+                child: Container(
+                  width: 100,
+                  color: Colors.orange,
+                  height: 50,
+                ),
+              ),
+              Container(
+                width: 100,
+                color: Colors.green,
+                height: 100,
+              ),
+            ],
+          ),
+          floatingActionButton: Container(
+            child: FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () {
+                print("클릭됌");
+              },
+            ),
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
                   label: "메인",
                   icon: Icon(
-                    Icons.access_alarm_rounded,
+                    Icons.home,
                   )
               ),
               BottomNavigationBarItem(
